@@ -1,0 +1,3 @@
+class CusChoicesController < ApplicationController
+
+end
