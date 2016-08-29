@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'sessions#new'
+  # root 'sessions#new'
+  root 'customers#new'
   resources :users
   resources :user_choices
   resources :customers

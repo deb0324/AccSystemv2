@@ -1,0 +1,8 @@
+<%= render 'shared/title', title: "所有客戶" %>
+
+<% @customers.each do |customer| %>
+  <%= link_to customer.name, customer_path(customer) %>
+<% end %>
+
+<%= link_to "new", new_customer_path %>
+<%= link_to "edit", new_cus_choice_path %>
