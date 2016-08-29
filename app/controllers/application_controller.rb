@@ -50,12 +50,20 @@ class ApplicationController < ActionController::Base
     ['1~2月營業稅','3~4月營業稅','5~6月營業稅','7~8月營業稅','9~10月營業稅','11~12月營業稅','扣繳憑單申報', '結算申報']
   end
 
+  # def get_task_types_eng
+  #   ["VatJan", "VatMar", "VatMay", "VatJul", "VatSep", "VatNov", "Voucher", "IncomeTax"]
+  # end
+
   def get_task_types_eng
-    ["VatJan", "VatMar", "VatMay", "VatJul", "VatSep", "VatNov", "Voucher", "IncomeTax"]
+    ["vat_jan", "vat_mar", "vat_may", "vat_jul", "vat_sept", "vat_nov", "voucher", "income_tax"]
   end
 
+  # def get_check_types
+  #   ["Primary", "Secondary", "Recieved", "Upload"]
+  # end
+
   def get_check_types
-    ["Primary", "Secondary", "Recieved", "Upload"]
+    ["recieved", "primary", "secondary", "accountant", "upload"]
   end
 
   def get_years
@@ -142,21 +150,21 @@ class ApplicationController < ActionController::Base
 
     case task
     when '1~2月營業稅'
-      'VatJan'
+      'vat_jan'
     when '3~4月營業稅'
-      'VatMar'
+      'vat_mar'
     when '5~6月營業稅'
-      'VatMay'
+      'vat_may'
     when '7~8月營業稅'
-      'VatJul'
+      'vat_jul'
     when '9~10月營業稅'
-      'VatSep'
+      'vat_sept'
     when '11~12月營業稅'
-      'VatNov'
+      'vat_nov'
     when '扣繳憑單申報'
-      'Voucher'
+      'voucher'
     when '結算申報'
-      'IncomeTax'
+      'income_tax'
     else
       redirect_to '/'
     end  
@@ -166,21 +174,21 @@ class ApplicationController < ActionController::Base
   def task_e2c(task)
 
     case task
-    when 'VatJan'
+    when 'vat_jan'
       '1~2月營業稅'
-    when 'VatMar'
+    when 'vat_mar'
       '3~4月營業稅'
-    when 'VatMay'
+    when 'vat_may'
       '5~6月營業稅'
-    when 'VatJul'
+    when 'vat_jul'
       '7~8月營業稅'
-    when 'VatSep'
+    when 'vat_sept'
       '9~10月營業稅'
-    when 'VatNov'
+    when 'vat_nov'
       '11~12月營業稅'
-    when 'Voucher'
+    when 'voucher'
       '扣繳憑單申報'
-    when 'IncomeTax'
+    when 'income_tax'
       '結算申報'
     else
       '###'

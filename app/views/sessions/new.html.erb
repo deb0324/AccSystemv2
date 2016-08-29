@@ -1,0 +1,18 @@
+<%= render 'shared/title', title: '案件管制系統' %>
+<div>
+  <%= form_for(:session, url: login_path) do |f| %>
+    <p>姓名:</p>
+    <p><%= f.select :name, options_for_select(@names) %></p>
+
+    <p>作業項目:</p>
+    <p><%= f.select :type, options_for_select(@type_options, current_task) %></p>
+
+    <p>操作年度:</p>
+    <p><%= f.select :year, options_for_select(@year_options, current_year)  %></p>
+
+    <p>密碼:</p>
+    <p><%= f.password_field :password %></p>
+
+    <%= f.submit "登入" %>
+  <% end %>
+</div>

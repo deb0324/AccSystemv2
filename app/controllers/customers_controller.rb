@@ -1,9 +1,5 @@
 class CustomersController < ApplicationController
 
-  def index
-    @customers = Customer.all
-  end
-
   def new
     @customer = Customer.new
     @users = name_array()
@@ -21,7 +17,7 @@ class CustomersController < ApplicationController
 
     if @customer.save
       flash[:success] = "客戶:#{@customer.name} 新增成功"
-      redirect_to customers_path
+      redirect_to users_path
     else
       @users = name_array()
       @declare_types = get_declare_types()
@@ -54,7 +50,7 @@ class CustomersController < ApplicationController
 
     if @customer.update(customer_params) && @customer.save
       flash[:success] = "客戶:#{@customer.name} 修改成功"
-      redirect_to customers_path
+      redirect_to users_path
     else
       @users = name_array()
       @status = get_status()
@@ -75,7 +71,7 @@ class CustomersController < ApplicationController
     @customer.destroy
 
     flash[:success] = "客戶刪除成功"
-    redirect_to customers_path
+    redirect_to users_path
   end
 
   private
