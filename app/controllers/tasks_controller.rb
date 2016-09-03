@@ -1,5 +1,16 @@
 class TasksController < ApplicationController
 
+  def check
+    check = Check.find(Task.find(params[:id]).read_attribute(params[:type]))
+    check.update_attribute(params[:check_type], params[:flag])
+    check.update_attribute("#{params[:check_type]}_time", DateTime.now)
+
+    # if check.save
+      redirect_to session[:session_url]
+    # end
+  end
+
+
   def new
     @task = Task.new
     @year_options = get_years
@@ -18,6 +29,23 @@ class TasksController < ApplicationController
 
     redirect_to users_path
   end
+
+  def edit
+    @task = Task.find(params[:id])
+    
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    @task.note = params[:task][:note]
+
+    if @task.save
+      redirect_to session[:session_url]
+    else
+      render :edit
+    end
+  end
+
 
   private
 

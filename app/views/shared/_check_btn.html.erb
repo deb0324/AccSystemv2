@@ -1,0 +1,15 @@
+<td>
+  <!-- if flag is false -->
+  <% if !(check.read_attribute(check_type)) %> 
+    <% if current_user.permission?(task, check_type) && current_user.completed?(check, check_type) %>
+      <%= link_to check_task_path(task, type: type, check_type: check_type, flag: true), class: "empty_btn", :data => {:confirm => '確定？'}, method: 'post' do%>
+      <% end %>
+    <% end %>
+  <% else %>
+    <% if current_user.permission?(task, check_type) %>
+      <%= link_to check_task_path(task, type: type, check_type: check_type, flag: false), :data => {:confirm => '確定？'}, method: 'post' do%><small><%= check.read_attribute("#{check_type}_time").strftime("%b %d, %Y") %></small> <% end %>
+    <% else %>
+     <small><%= check.read_attribute("#{check_type}_time").strftime("%b %d, %Y") %></small>
+    <% end %>
+  <% end %>
+</td>
