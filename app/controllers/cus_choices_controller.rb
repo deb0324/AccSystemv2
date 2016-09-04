@@ -1,11 +1,11 @@
 class CusChoicesController < ApplicationController
 
   def new
-    @customers = Customer.all.pluck(:name_abrev)
+    @customers = cus_array()
   end
 
   def create
-    @customer = Customer.find_by_name_abrev(params[:choice][:name_abrev])
+    @customer = Customer.find_by_name_abrev(params[:choice][:name].split(" ")[1])
 
     if @customer
       redirect_to edit_customer_path(@customer)

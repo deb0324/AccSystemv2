@@ -61,13 +61,16 @@ class CustomersController < ApplicationController
 
   def destroy
     @customer = Customer.find(params[:id])
-
-    # tasks = @customer.tasks
-    # tasks.each do |task|
-    #   task.checks.destroy_all
-    # end
+    task_types = get_task_types_eng()
+    tasks = @customer.tasks
+    tasks.each do |task|
+      task_types.each do |task_type|
+        check = Check.find(task.read_attribute(task_type))
+        check.destroy
+      end
+    end
     
-    # tasks.destroy_all
+    tasks.destroy_all
     @customer.destroy
 
     flash[:success] = "客戶刪除成功"
