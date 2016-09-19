@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902233727) do
+ActiveRecord::Schema.define(version: 20160910223155) do
 
   create_table "checks", force: :cascade do |t|
     t.boolean  "recieved"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160902233727) do
     t.datetime "upload_time"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.text     "note"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -65,7 +66,6 @@ ActiveRecord::Schema.define(version: 20160902233727) do
     t.integer  "income_tax"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.text     "note"
   end
 
   create_table "users", force: :cascade do |t|

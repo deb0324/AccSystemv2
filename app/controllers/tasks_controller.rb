@@ -30,23 +30,6 @@ class TasksController < ApplicationController
     redirect_to users_path
   end
 
-  def edit
-    @task = Task.find(params[:id])
-    
-  end
-
-  def update
-    @task = Task.find(params[:id])
-    @task.note = params[:task][:note]
-
-    if @task.save
-      redirect_to session[:session_url]
-    else
-      render :edit
-    end
-  end
-
-
   private
 
   def add_tasks(customer, year)

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :cus_choices
   resources :sessions
   resources :tasks
+  resources :checks
   
   get '/choose_user' => 'user_choices#new'
   post '/choose_user' => 'user_choices#create'

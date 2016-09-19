@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :current_year, :convert_name, :current_task, :declare_e2c
   
+  @sort = false
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
@@ -49,6 +51,20 @@ class ApplicationController < ActionController::Base
     name = "#{user.code} #{user.name}"
   end
 
+  def get_sort
+    @sort
+  end
+
+  def set_sort(flag)
+    @sort = flag
+  end
+
+  def sort_checks(tasks)
+    tasks.each do |task|
+      
+    end
+  end
+
   def get_declare_types
     ["書審","查帳","簽證"]
   end
@@ -87,20 +103,18 @@ class ApplicationController < ActionController::Base
       flag = "1~2月營業稅"
     when ("05-01".."05-15")
       flag = "3~4月營業稅"
-    when ("07-01".."07-17")
+    when ("07-01".."07-31")
       flag = "5~6月營業稅"
-    when ("09-01".."09-17")
+    when ("08-01".."09-30")
       flag = "7~8月營業稅"
-    when ("11-01".."11-17")
+    when ("10-01".."11-30")
       flag = "9~10月營業稅"
-    when ("01-01".."01-15")
+    when ("12-01".."01-15")
       flag = "11~12月營業稅"
     when ("01-16".."02-05")
-      flag = "11~12月營業稅"
-    when ("05-16".."06-05")
-      flag = "11~12月營業稅"
+      flag = "扣繳憑單申報"
     else
-      flag = "1~2月營業稅"
+      flag = "結算申報"
     end
   end
 
