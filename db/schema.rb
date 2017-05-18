@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160910223155) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "checks", force: :cascade do |t|
     t.boolean  "recieved"
     t.datetime "recieved_time"

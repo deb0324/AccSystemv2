@@ -44,7 +44,8 @@ group :development, :test do
   gem 'byebug'
   gem 'pry'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  # gem 'sqlite3'
+  gem 'pg'
 end
 
 group :development do
@@ -59,4 +60,3 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
-
