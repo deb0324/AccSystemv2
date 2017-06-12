@@ -18,6 +18,7 @@
 
 body {
   margin: 0px;
+  margin-bottom: 50px;
 }
 
 .frame {
@@ -43,7 +44,7 @@ table#session {
 
 
 table#customer_new{
-  width: 50%;
+  width: 100%;
 
   td {
     text-align: left;
@@ -52,9 +53,11 @@ table#customer_new{
 }
 
 table#customer_show{
-  width: 50%;
+  width: 100%;
+  table-layout: fixed;
 
   td {
+    // width: 30%;
     text-align: left;
     border-bottom: 1px solid #ddd;
     height: 30px;
@@ -96,6 +99,6 @@ table#customer_show{
 
 @media print {
   a[href]:after {
-    content: none !important; 
+    content: none !important;
   }
-} 
+}

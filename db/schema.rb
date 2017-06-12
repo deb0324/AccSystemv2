@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160910223155) do
+ActiveRecord::Schema.define(version: 20170612151901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,12 +39,12 @@ ActiveRecord::Schema.define(version: 20160910223155) do
     t.string   "reg_addr"
     t.string   "contact_addr"
     t.string   "declare_type"
-    t.string   "contact"
-    t.string   "phone"
-    t.string   "cellphone"
+    t.string   "contact_1"
+    t.string   "phone_1"
+    t.string   "cellphone_1"
     t.string   "fax"
     t.string   "email"
-    t.string   "fee"
+    t.string   "monthly_fee"
     t.integer  "officer_id"
     t.integer  "leader_id"
     t.integer  "manager_id"
@@ -54,6 +54,19 @@ ActiveRecord::Schema.define(version: 20160910223155) do
     t.text     "note_2"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "phone_2"
+    t.string   "phone_3"
+    t.string   "contact_2"
+    t.string   "contact_3"
+    t.string   "cellphone_2"
+    t.string   "cellphone_3"
+    t.text     "note_3"
+    t.text     "note_4"
+    t.text     "note_5"
+    t.text     "note_6"
+    t.integer  "extra_fee"
+    t.integer  "tax_fee"
+    t.integer  "audit_fee"
   end
 
   create_table "tasks", force: :cascade do |t|

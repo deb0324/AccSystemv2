@@ -4,6 +4,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new
     @users = name_array()
     @declare_types = get_declare_types()
+    @status = get_status()
   end
 
   def create
@@ -69,7 +70,7 @@ class CustomersController < ApplicationController
         check.destroy
       end
     end
-    
+
     tasks.destroy_all
     @customer.destroy
 
@@ -80,6 +81,6 @@ class CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:code, :name_abrev, :name, :reg_addr, :contact_addr, :contact, :cellphone, :phone, :fax, :email, :fee, :note_1, :note_2)
+    params.require(:customer).permit(:code, :name_abrev, :name, :reg_addr, :contact_addr, :contact_1, :contact_2, :contact_3, :cellphone_1, :cellphone_2, :cellphone_3, :phone_1, :phone_2, :phone_3, :fax, :email, :monthly_fee, :tax_fee, :extra_fee, :audit_fee, :note_1, :note_2, :note_3, :note_4, :note_5, :note_6)
   end
 end

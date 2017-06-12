@@ -9,7 +9,7 @@
 
   <tr>
     <td>客戶簡稱: </td>
-    <td><%= @customer.name_abrev %></td>  
+    <td><%= @customer.name_abrev %></td>
   </tr>
 
   <tr>
@@ -33,18 +33,30 @@
   </tr>
 
   <tr>
-    <td>聯絡人: </td>
-    <td><%= @customer.contact %></td>
+    <td>聯絡人1: </td>
+    <td><%= @customer.contact_1 %></td>
+    <td>聯絡人2: </td>
+    <td><%= @customer.contact_2 %></td>
+    <td>聯絡人3: </td>
+    <td><%= @customer.contact_3 %></td>
   </tr>
 
   <tr>
-    <td>手機: </td>
-    <td><%= @customer.cellphone %></td>
+    <td>手機1: </td>
+    <td><%= @customer.cellphone_1 %></td>
+    <td>手機2: </td>
+    <td><%= @customer.cellphone_2 %></td>
+    <td>手機3: </td>
+    <td><%= @customer.cellphone_3 %></td>
   </tr>
 
   <tr>
-    <td>電話: </td>
-    <td><%= @customer.phone %></td>
+    <td>電話1: </td>
+    <td><%= @customer.phone_1 %></td>
+    <td>電話2: </td>
+    <td><%= @customer.phone_2 %></td>
+    <td>電話3: </td>
+    <td><%= @customer.phone_3 %></td>
   </tr>
 
   <tr>
@@ -58,8 +70,14 @@
   </tr>
 
   <tr>
-    <td>費用:</td>
-    <td><%= @customer.fee %></td>
+    <td>每月費用:</td>
+    <td><%= @customer.monthly_fee %></td>
+    <td>結算加收:</td>
+    <td><%= @customer.extra_fee %></td>
+    <td>稅簽:</td>
+    <td><%= @customer.tax_fee %></td>
+    <td>財簽:</td>
+    <td><%= @customer.audit_fee %></td>
   </tr>
 
   <tr>
@@ -85,10 +103,18 @@
   <tr>
     <td>備註1: </td>
     <td><%= auto_link(simple_format(@customer.note_1)) %></td>
+    <td>備註2: </td>
+    <td><%= auto_link(simple_format(@customer.note_2)) %></td>
+    <td>備註3: </td>
+    <td><%= auto_link(simple_format(@customer.note_3)) %></td>
   </tr>
 
   <tr>
-    <td>備註2: </td>
-    <td><%= auto_link(simple_format(@customer.note_2)) %></td>
+    <td>備註4: </td>
+    <td><%= auto_link(simple_format(@customer.note_4)) %></td>
+    <td>備註5: </td>
+    <td><%= auto_link(simple_format(@customer.note_5)) %></td>
+    <td>備註6: </td>
+    <td><%= auto_link(simple_format(@customer.note_6)) %></td>
   </tr>
   </table>

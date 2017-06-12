@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'puma'
+
 gem 'bcrypt'
 
 gem 'awesome_print'

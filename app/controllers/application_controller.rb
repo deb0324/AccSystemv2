@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user, :current_year, :convert_name, :current_task, :declare_e2c
-  
+
   @sort = false
 
   def current_user
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_accountant
-    redirect_to login_path unless current_user && current_user.accountant? 
+    redirect_to login_path unless current_user && current_user.accountant?
   end
 
   # Calculate 民國 year
@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   def name_array
     codes = User.all.order(:code).pluck(:code)
     names = User.all.order(:code).pluck(:name)
-    
+
     length = names.length
     arr = []
     (0...length).each do |i|
@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
     end
     arr
   end
-  
+
   def convert_name(user)
     name = "#{user.code} #{user.name}"
   end
@@ -61,16 +61,16 @@ class ApplicationController < ActionController::Base
 
   def sort_checks(tasks)
     tasks.each do |task|
-      
+
     end
   end
 
   def get_declare_types
-    ["書審","查帳","簽證"]
+    ["書審","查帳","稅簽", "財稅", "財簽"]
   end
 
   def get_status
-    ["現有客戶", "停業", "遷出"]
+    ["現有客戶", "外來", "停業", "遷出", "註銷"]
   end
 
   def get_task_types_chin
@@ -126,6 +126,10 @@ class ApplicationController < ActionController::Base
       "closed"
     when "遷出"
       "moved"
+    when "註銷"
+      "cancelled"
+    when "外來"
+      "external"
     else
       "current"
     end
@@ -139,6 +143,10 @@ class ApplicationController < ActionController::Base
       "停業"
     when "moved"
       "遷出"
+    when "cancelled"
+      "註銷"
+    when "external"
+      "外來"
     else
       "現有客戶"
     end
@@ -150,8 +158,12 @@ class ApplicationController < ActionController::Base
       "review"
     when "查帳"
       "account"
-    when "簽證"
-      "visa"
+    when "稅簽"
+      "tax_audit"
+    when "財簽"
+      "financial_audit"
+    when "財稅"
+      "fin_tax_audit"
     else
       "review"
     end
@@ -165,6 +177,12 @@ class ApplicationController < ActionController::Base
       "查帳"
     when "visa"
       "簽證"
+    when "tax_audit"
+      "稅簽"
+    when "financial_audit"
+      "財稅"
+    when "fin_tax_audit"
+      "財稅"
     else
       "書審"
     end
@@ -192,7 +210,7 @@ class ApplicationController < ActionController::Base
       'income_tax'
     else
       redirect_to '/'
-    end  
+    end
   end
 
   # Convert task name from Eng to Chin

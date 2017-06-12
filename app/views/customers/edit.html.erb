@@ -36,18 +36,30 @@
   </tr>
 
   <tr>
-    <td>聯絡人: </td>
-    <td><%= f.text_field :contact %></td>
+    <td>聯絡人1: </td>
+    <td><%= f.text_field :contact_1 %></td>
+    <td>聯絡人2: </td>
+    <td><%= f.text_field :contact_2 %></td>
+    <td>聯絡人3: </td>
+    <td><%= f.text_field :contact_3 %></td>
   </tr>
 
   <tr>
-    <td>手機: </td>
-    <td><%= f.text_field :cellphone %></td>
+    <td>手機1: </td>
+    <td><%= f.text_field :cellphone_1 %></td>
+    <td>手機2: </td>
+    <td><%= f.text_field :cellphone_2 %></td>
+    <td>手機3: </td>
+    <td><%= f.text_field :cellphone_3 %></td>
   </tr>
 
   <tr>
-    <td>電話: </td>
-    <td><%= f.text_field :phone %></td>
+    <td>電話1: </td>
+    <td><%= f.text_field :phone_1 %></td>
+    <td>電話2: </td>
+    <td><%= f.text_field :phone_2 %></td>
+    <td>電話3: </td>
+    <td><%= f.text_field :phone_3 %></td>
   </tr>
 
   <tr>
@@ -61,8 +73,14 @@
   </tr>
 
   <tr>
-    <td>費用:</td>
-    <td><%= f.text_field :fee %></td>
+    <td>每月費用:</td>
+    <td><%= f.text_field :monthly_fee %></td>
+    <td>結算加收:</td>
+    <td><%= f.text_field :extra_fee %></td>
+    <td>稅簽:</td>
+    <td><%= f.text_field :tax_fee %></td>
+    <td>財簽:</td>
+    <td><%= f.text_field :audit_fee %></td>
   </tr>
 
   <tr>
@@ -93,11 +111,19 @@
   <tr>
     <td>備註1: </td>
     <td><%= f.text_area :note_1 %></td>
+    <td>備註2: </td>
+    <td><%= f.text_area :note_2 %></td>
+    <td>備註3: </td>
+    <td><%= f.text_area :note_3 %></td>
   </tr>
 
   <tr>
-    <td>備註2: </td>
-    <td><%= f.text_area :note_2 %></td>
+    <td>備註4: </td>
+    <td><%= f.text_area :note_4 %></td>
+    <td>備註5: </td>
+    <td><%= f.text_area :note_5 %></td>
+    <td>備註6: </td>
+    <td><%= f.text_area :note_6 %></td>
   </tr>
   </table>
     <p><%= f.submit '修改' %></p>
